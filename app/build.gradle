@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk rootProject.ext.compileSdk
 
     defaultConfig {
         applicationId "com.example.axounaut"
-        minSdk 29
-        targetSdk 31
+        minSdk rootProject.ext.minSdk
+        targetSdk rootProject.ext.targetSdk
         versionCode 1
         versionName "1.0"
 
@@ -37,10 +37,10 @@ dependencies {
     implementation project(path: ':data')
 
     // Core
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation rootProject.ext.kotlin.core
+    implementation rootProject.ext.ui.appCompat
+    implementation rootProject.ext.ui.material
+    implementation rootProject.ext.ui.constraintLayout
 
     // Tests
     testImplementation 'junit:junit:4.+'

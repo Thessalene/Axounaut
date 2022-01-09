@@ -1,0 +1,25 @@
+ext {
+    compileSdk = 31
+    minSdk = 29
+    targetSdk= 31
+
+    kotlinVersion= "1.7.0"
+
+    kotlin = [
+        core : "androidx.core:core-ktx:1.7.0"
+    ]
+
+    // UI
+    appCompatVersion= '1.4.0'
+    cardViewVersion= '1.0.0'
+    constraintLayoutVersion= '2.1.2'
+    materialVersion= '1.4'
+    recyclerViewVersion= '1.1.0'
+    ui = [
+        appCompat : "androidx.appcompat:appcompat:$appCompatVersion",
+        cardView : "androidx.cardview:cardview:$cardViewVersion",
+        constraintLayout : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+        recyclerView : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
+        material : "androidx.material:material:$materialVersion",
+    ]
+}
