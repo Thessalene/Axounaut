@@ -1,0 +1,97 @@
+@startuml
+
+title Architecture
+skinparam object {
+          BackgroundColor Snow
+          BorderColor Green
+          ArrowColor Green
+}
+skinparam defaultTextAlignment center
+
+'PRESENTATION (Android Part)
+package "Presentation" {
+  node "Application"
+  node "Di"
+  node "Views"
+  node "Extensions"
+  node ViewModels
+}
+
+'DOMAIN MODEL
+package "Domain" {
+  node Repository {
+      () CommandRepo
+  }
+  node RepositoryImpl{
+      () CommandRepoImpl
+  }
+
+  node UseCases {
+    () getCommandsUseCase
+  }
+}
+
+'DATAS
+package "Data" {
+'LOCAL MODULE
+rectangle "Local" {
+  node RepositoryLocal {
+    () CommandLocalDataSourceRepo
+  }
+
+  node localMapper
+
+  node RepositoryLocalImpl {
+    () CommandLocalDataSourceImpl
+  }
+
+  node commandDao
+}
+
+'EXTERNAL MODULE
+rectangle "External" {
+  node apis {
+    () CommandService
+  }
+  node externalMapper
+  node RepositoryExternal {
+      () CommandExternalDataSourceRepo
+  }
+  node RepositoryExternalImpl {
+      () CommandExternalDataSourceImpl
+  }
+}
+}
+
+'EXTERNAL DATA SOURCE
+rectangle API
+
+database "MySql" {
+  rectangle CommandDB
+  rectangle StockDB
+}
+
+'RELATIONS
+Views -down--> ViewModels
+ViewModels -down--> UseCases
+
+getCommandsUseCase --> CommandRepo
+
+CommandRepo --> CommandRepoImpl
+CommandRepoImpl --> localMapper
+localMapper --> CommandLocalDataSourceRepo
+RepositoryLocalImpl ..up.|> RepositoryLocal
+CommandLocalDataSourceImpl --> commandDao
+commandDao --> CommandDB
+
+CommandRepoImpl --> externalMapper
+externalMapper --> CommandExternalDataSourceRepo
+RepositoryExternalImpl ..up.|> RepositoryExternal
+CommandExternalDataSourceImpl --> CommandService
+CommandService --> API
+
+'Hidden relations
+CommandExternalDataSourceRepo -[hidden]down- CommandService
+UseCases -[hidden]- externalMapper
+
+@enduml

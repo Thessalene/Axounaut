@@ -8,3 +8,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Axounaut"
 include ':app'
+include ':domain'
+include ':presentation'
+include ':data'
+include ':documentation'
