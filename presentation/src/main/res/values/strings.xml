@@ -1,1 +1,8 @@
-<resources></resources>
+<resources>
+
+    <string name="app_name">Axounaut</string>
+    <string name="title_home">Home</string>
+    <string name="title_stock">Stock</string>
+    <string name="title_articles">Articles</string>
+
+</resources>

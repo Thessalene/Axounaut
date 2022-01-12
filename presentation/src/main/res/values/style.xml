@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TitleStyle" parent="@android:style/TextAppearance">
+        <item name="android:color">@color/salamander_attenue</item>
+        <item name="android:fontFamily">@font/rosario_wght</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+</resources>
