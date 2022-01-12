@@ -4,6 +4,256 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/orange_light"
     tools:context=".HomeActivity">
+
+    <View
+        android:id="@+id/view_header"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_rounded_header"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_guideline1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo_kb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_header_item_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded"
+        android:backgroundTint="@color/gray_0"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/tv_total_command"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rosario_wght"
+            android:text="Total de commandes"
+            android:textColor="@color/gray_2"
+            android:textSize="6sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_total_command_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rosario_wght"
+            android:text="43"
+            android:textColor="@color/ginger"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_total_command" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_header_item_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded"
+        android:backgroundTint="@color/gray_0"
+        android:padding="5dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/tv_CA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rosario_wght"
+            android:text="Chiffre d'affaire"
+            android:textColor="@color/gray_2"
+            android:textSize="6sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_CA_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rosario_wght"
+            android:text="534,0€"
+            android:textColor="@color/ginger"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_CA" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_header_item_3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded"
+        android:backgroundTint="@color/gray_0"
+        android:padding="5dp"
+        app:layout_constraintWidth_max="100dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/tv_reduction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rosario_wght"
+            android:text="Chiffre d'affaire"
+            android:textColor="@color/gray_2"
+            android:textSize="6sp"
+            app:layout_constraintEnd_toEndOf="@id/tv_reduction_details"
+            app:layout_constraintStart_toStartOf="@id/tv_reduction_details"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_reduction_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rosario_wght"
+            android:text="534,0€"
+            android:textColor="@color/ginger"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_reduction" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:constraint_referenced_ids="cl_header_item_1, cl_header_item_2, cl_header_item_3"
+        app:flow_wrapMode="chain"
+        app:layout_constraintBottom_toBottomOf="@id/view_header"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:listitem="@layout/item_home_sold"
+        app:layout_constraintBottom_toBottomOf="@id/view_header"
+        app:layout_constraintTop_toBottomOf="@id/flow"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:layout_constraintStart_toStartOf="@id/vertical_guideline1"
+        app:layout_constraintEnd_toEndOf="@id/vertical_guideline2"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        tools:itemCount="3" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_command"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:backgroundTint="@color/green_light_1"
+        android:src="@android:drawable/ic_input_add"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_analysis"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_guideline1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/vertical_guideline1"
+        app:layout_constraintEnd_toEndOf="@id/vertical_guideline2"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Analyses"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:paddingVertical="@dimen/activity_vertical_margin"
+            android:layout_gravity="start" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_right_arrow"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:paddingVertical="@dimen/activity_vertical_margin" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_stock"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintTop_toBottomOf="@id/cv_analysis"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/vertical_guideline1"
+        app:layout_constraintEnd_toEndOf="@id/vertical_guideline2"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_stock"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:paddingVertical="@dimen/activity_vertical_margin"
+            android:layout_gravity="start" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_right_arrow"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:paddingVertical="@dimen/activity_vertical_margin" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
