@@ -4,5 +4,6 @@
     <string name="title_home">Home</string>
     <string name="title_stock">Stock</string>
     <string name="title_articles">Articles</string>
+    <string name="title_activity_home_compose">HomeComposeActivity</string>
 
 </resources>
