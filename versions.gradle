@@ -1,6 +1,6 @@
 ext {
     compileSdk = 31
-    minSdk = 29
+    minSdk = 28
     targetSdk= 31
 
     kotlinVersion= "1.7.0"
@@ -20,7 +20,7 @@ ext {
         cardView : "androidx.cardview:cardview:$cardViewVersion",
         constraintLayout : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
         recyclerView : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
-        material : 'com.google.android.material:material:$materialVersion'
+        material : "com.google.android.material:material:$materialVersion"
 
     ]
 }
